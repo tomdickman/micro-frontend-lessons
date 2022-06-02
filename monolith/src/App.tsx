@@ -17,7 +17,7 @@ function App() {
       <h1>Monolith</h1>
       <p>This is the monolith application, to which micro frontends are mounted</p>
       <h2>Micro frontend</h2>
-      <div id='webcomponent-mount' />
+      <div id="webcomponent-mount" className="Microfrontend-container" />
     </div>
   );
 }
