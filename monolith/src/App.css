@@ -32,6 +32,10 @@
   padding: 0 5em;
 }
 
+.ag-theme-alpine {
+  --ag-foreground-color: deeppink;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

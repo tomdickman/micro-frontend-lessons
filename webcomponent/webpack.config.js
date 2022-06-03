@@ -5,7 +5,7 @@ const PnpPlugin = require("pnp-webpack-plugin");
 const isProductionBuild = process.env.ENV !== "development";
 
 module.exports = {
-  target: "es6",
+  target: "web",
   mode: !isProductionBuild ? 'development' : 'production',
   entry: './src/components/index.tsx', // Where your app entrypoint is, all modules import chains start here.
   output: {
