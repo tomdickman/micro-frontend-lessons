@@ -11,6 +11,7 @@ export interface HelloWorldProps {
   userName: string;
   lang: string;
 }
+
 export const App = (props: HelloWorldProps) => {
   const [gridApi, setGridApi] = useState<GridApi>(); // Optional - for accessing Grid's API
   const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row

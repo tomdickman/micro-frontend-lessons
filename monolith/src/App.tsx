@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
+import { GridApi, GridReadyEvent } from 'ag-grid-community';
 
 import 'ag-grid-community/dist/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'; // Optional theme CSS
 
 import './App.css';
-import { GridApi, GridReadyEvent } from 'ag-grid-community';
 
 const App = () => {
   useEffect(() => {
