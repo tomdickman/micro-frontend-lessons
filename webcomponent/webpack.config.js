@@ -4,6 +4,29 @@ const PnpPlugin = require("pnp-webpack-plugin");
 
 const isProductionBuild = process.env.ENV !== "development";
 
+// Use a custom insert function with style-loader to load all styles into the shadow
+// DOM of our micro frontend web component instead of the document head.
+const microFrontendStyleLoader = {
+  loader: "style-loader",
+  options: {
+    insert: (styleElement) => {
+      const observer = new MutationObserver((_mutations, obs) => {
+        const container = document.querySelector("encapsulated-micro-frontend");
+
+        if (container) {
+          container.shadowRoot.prepend(styleElement);
+          obs.disconnect();
+        }
+      });
+
+      observer.observe(document, {
+        childList: true,
+        subtree: true,
+      });
+    },
+  },
+};
+
 module.exports = {
   target: "web",
   mode: !isProductionBuild ? 'development' : 'production',
@@ -26,7 +49,7 @@ module.exports = {
       {
         test: /\.module\.css$/i,
         use: [
-          "style-loader",
+          microFrontendStyleLoader,
           {
             loader: "css-loader",
             options: {
@@ -37,7 +60,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [microFrontendStyleLoader, "css-loader"],
         exclude: /\.module\.css$/,
       },
     ]
