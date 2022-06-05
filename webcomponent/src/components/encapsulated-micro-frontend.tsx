@@ -7,11 +7,10 @@ class AppHTMLElement extends HTMLElement {
   connectedCallback(): void {
     if (this.shadowRoot === null) {
       // You can load fonts required for the micro frontend into the light DOM here
-      // 
-      // const link = document.createElement("link");
-      // link.rel = "stylesheet";
-      // link.href = "https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap";
-      // document.head.appendChild(link);
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap";
+      document.head.appendChild(link);
 
       const mountPoint = document.createElement("div");
       const shadowRoot = this.attachShadow({ mode: "open" });
