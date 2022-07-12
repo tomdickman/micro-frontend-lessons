@@ -2,6 +2,36 @@
 
 This is a demo application outlining how web components and the shadow DOM can be utilised in tandem with React to encapsulate a micro frontend.
 
+## Running locally
+
+There are two demo applications in the paths `monolith` and `webcomponent` and each needs to be run separately, both use Node 16.
+
+This repo uses multiple different branched to demonstrate issues and solutions with web components, just checkout the desired branch and run the following to start the applications.
+
+When both are running, by visiting <http://localhost:3000> you should be able to view the micro frontend mounted in the monolith application.
+
+### Monolith
+
+```bash
+npm install
+npm run start
+```
+
+The application should start running on <http://localhost:3000>
+
+### Web component
+
+This uses Yarn for package management, so the instructions are slightly different
+
+```bash
+corepack enable # to ensure yarn is installed
+yarn set version stable
+yarn install
+yarn start
+```
+
+The application should start running on <http://localhost:9000>
+
 ## What it solves
 
 - Style clashes between micro frontend app components and global styles of the app where the micro frontend is mounted
